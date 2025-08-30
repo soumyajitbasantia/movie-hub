@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="movie-title">Arabia Kadali – Movie Hub</title>
+  <style>
+    /* ---------------- Body & Fonts ---------------- */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #121212, #1a1a1a);
+      color: #fff;
+      text-align: center;
+    }
+
+    /* ---------------- Banner ---------------- */
+    .banner {
+      position: relative;
+      overflow: hidden;
+    }
+    .banner img {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-bottom: 5px solid #34A853;
+      transition: transform 0.5s ease;
+    }
+    .banner img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------------- Content ---------------- */
+    .content {
+      padding: 25px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.03);
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 15px 0 10px;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .type {
+      font-size: 18px;
+      color: #bbb;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    /* ---------------- Episode Selector ---------------- */
+    select {
+      margin: 20px 0;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    select:hover {
+      background: #34A853;
+    }
+
+    /* ---------------- Trailer ---------------- */
+    .trailer {
+      width: 100%;
+      max-width: 900px;
+      margin: 25px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    }
+    .trailer iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+
+    /* ---------------- Buttons ---------------- */
+    .buttons {
+      margin-top: 25px;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 12px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #34A853, #1DA1F2);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .buttons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #e50914, #ff5733);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    }
+
+    /* ---------------- Responsive ---------------- */
+    @media(max-width:768px){
+      h1 { font-size: 28px; }
+      .trailer iframe { height: 350px; }
+    }
+    @media(max-width:480px){
+      h1 { font-size: 24px; }
+      .description { font-size: 16px; }
+      select { font-size: 15px; }
+      .buttons a, .back-btn { padding: 12px 20px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Poster Banner -->
+  <div class="banner">
+    <img id="poster" src="https://m.media-amazon.com/images/S/pv-target-images/1c090ac97bc550cdae075baa59d65096768c9b7474ca9aa379ff71aa03b1aac4._SX1080_FMjpg_.jpg" alt="Arabia Kadali">
+  </div>
+
+  <!-- Movie Details -->
+  <div class="content">
+    <h1 id="title">Arabia Kadali – Episode 1</h1>
+    <div class="type" id="genre">Drama</div>
+
+    <!-- Episode Selector -->
+    <select id="episode-selector">
+      <option value="0">Episode 1</option>
+      <option value="1">Episode 2</option>
+      <option value="2">Episode 3</option>
+      <option value="3">Episode 4</option>
+      <option value="4">Episode 5</option>
+      <option value="5">Episode 6</option>
+      <option value="6">Episode 7</option>
+      <option value="7">Episode 8</option>
+    </select>
+
+    <div class="description" id="desc">
+      A gripping survival story of the first episode.
+    </div>
+
+    <!-- Embedded Trailer -->
+    <div class="trailer">
+      <iframe id="trailer" src="https://www.youtube.com/embed/sOD5wwC1kGw" allowfullscreen></iframe>
+    </div>
+
+    <!-- Watch / Download Button -->
+    <div class="buttons">
+      <a id="drive-btn" href="https://hubcloud.one/drive/fnngu9wy0npanns" target="_blank">📥 Watch/Download on HUB Drive</a>
+    </div>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <script>
+    const episodes = [
+      { title: "Arabia Kadali – Episode 1", description: "A gripping survival story of the first episode.", drive: "https://hubcloud.one/drive/jadzgmt1vygzbz0" },
+      { title: "Arabia Kadali – Episode 2", description: "The adventure continues as the danger grows.", drive: "https://hubcloud.one/drive/yq18rc13ysckuz1" },
+      { title: "Arabia Kadali – Episode 3", description: "The thrilling conclusion of this survival saga.", drive: "https://hubcloud.one/drive/ssppl1oox3h6p8y" },
+      { title: "Arabia Kadali – Episode 4", description: "Episode 4 description goes here.", drive: "https://hubcloud.one/drive/gxi8sr11vt4nirq" },
+      { title: "Arabia Kadali – Episode 5", description: "Episode 5 description goes here.", drive: "https://hubcloud.one/drive/gukgrri6vy97u6o" },
+      { title: "Arabia Kadali – Episode 6", description: "Episode 6 description goes here.", drive: "https://hubcloud.one/drive/uc02c2vjggpvngv" },
+      { title: "Arabia Kadali – Episode 7", description: "Episode 7 description goes here.", drive: "https://hubcloud.one/drive/g2bs1xs3tqge7qr" },
+      { title: "Arabia Kadali – Episode 8", description: "Episode 8 description goes here.", drive: "https://hubcloud.one/drive/2gs5ez5k1z2a5z0" }
+    ];
+
+    const selector = document.getElementById("episode-selector");
+    selector.addEventListener("change", function() {
+      const episode = episodes[this.value];
+      document.getElementById("title").innerText = episode.title;
+      document.getElementById("desc").innerText = episode.description;
+      document.getElementById("drive-btn").href = episode.drive;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  h1 {
+    margin: 40px 0 30px;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  @keyframes fadeInDown {
+    0% {opacity:0; transform: translateY(-50px);}
+    100% {opacity:1; transform: translateY(0);}
+  }
+
+  .poster-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    0% {opacity:0; transform: translateY(50px);}
+    100% {opacity:1; transform: translateY(0);}
+  }
+
+  .poster-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+  }
+
+  .poster-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  }
+
+  .poster-card img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .poster-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .poster-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    color: #fff;
+    text-align: left;
+  }
+
+  .poster-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+
+  .poster-type {
+    font-size: 0.9rem;
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease 0.1s;
+  }
+
+  .poster-card:hover .poster-title,
+  .poster-card:hover .poster-type {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (max-width:768px) {
+    .poster-container {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width:480px) {
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎬 Welcome to Movie Hub 🎬</h1>
+
+<div class="poster-container">
+  <div class="poster-card">
+    <a href="arabia_kadali.html" target="_blank">
+      <img src="https://m.media-amazon.com/images/S/pv-target-images/1c090ac97bc550cdae075baa59d65096768c9b7474ca9aa379ff71aa03b1aac4._SX1080_FMjpg_.jpg" alt="Arabia Kadali">
+      <div class="poster-info">
+        <div class="poster-title">Arabia Kadali</div>
+        <div class="poster-type">Drama</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="poster-card">
+    <a href="hit1.html" target="_blank">
+      <img src="https://m.media-amazon.com/images/S/pv-target-images/15d49ed8545bbdf2f4d7845a1c09db7cba43ff56cbb9fd4008d06024c1f8a6ca.jpg" alt="Hit One">
+      <div class="poster-info">
+        <div class="poster-title">Hit: The First Case</div>
+        <div class="poster-type">Series</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="poster-card">
+    <a href="hit2.html" target="_blank">
+      <img src="https://m.media-amazon.com/images/S/pv-target-images/0fbd6a006c6ba7fd3d6067c6d9a1e6d5da1dd4831c3ebde18dcb9ccaa2988c14.jpg" alt="Hit Two">
+      <div class="poster-info">
+        <div class="poster-title">Hit: The Second Case</div>
+        <div class="poster-type">Series</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="poster-card">
+    <a href="hit3.html" target="_blank">
+      <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/medium/hit-the-3rd-case-et00410905-1740556769.jpg" alt="Hit Three">
+      <div class="poster-info">
+        <div class="poster-title">Hit: The Third Case</div>
+        <div class="poster-type">Series</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
