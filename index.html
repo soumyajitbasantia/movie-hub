@@ -16,7 +16,7 @@
   }
 
   h1 {
-    margin: 40px 0 30px;
+    margin: 40px 0 20px;
     font-size: 2.8rem;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     animation: fadeInDown 1s ease forwards;
@@ -25,6 +25,21 @@
   @keyframes fadeInDown {
     0% {opacity:0; transform: translateY(-50px);}
     100% {opacity:1; transform: translateY(0);}
+  }
+
+  /* 🔍 Search box */
+  .search-container {
+    margin: 0 0 30px;
+  }
+  .search-box {
+    width: 60%;
+    max-width: 500px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
 
   .poster-container {
@@ -82,23 +97,11 @@
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 5px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
   }
 
   .poster-type {
     font-size: 0.9rem;
     color: #ccc;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease 0.1s;
-  }
-
-  .poster-card:hover .poster-title,
-  .poster-card:hover .poster-type {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   a {
@@ -114,6 +117,7 @@
 
   @media (max-width:480px) {
     h1 { font-size: 2rem; }
+    .search-box { width: 80%; }
   }
 </style>
 </head>
@@ -121,7 +125,12 @@
 
 <h1>🎬 Welcome to Movie Hub 🎬</h1>
 
-<div class="poster-container">
+<!-- 🔍 Search box -->
+<div class="search-container">
+  <input type="text" id="search" class="search-box" placeholder="Search movies or series..." onkeyup="searchMovies()">
+</div>
+
+<div class="poster-container" id="movie-list">
   <div class="poster-card">
     <a href="arabia_kadali.html" target="_blank">
       <img src="https://m.media-amazon.com/images/S/pv-target-images/1c090ac97bc550cdae075baa59d65096768c9b7474ca9aa379ff71aa03b1aac4._SX1080_FMjpg_.jpg" alt="Arabia Kadali">
@@ -162,6 +171,24 @@
     </a>
   </div>
 </div>
+
+<script>
+  function searchMovies() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let movies = document.getElementsByClassName("poster-card");
+
+    for (let i = 0; i < movies.length; i++) {
+      let title = movies[i].getElementsByClassName("poster-title")[0].innerText.toLowerCase();
+      let type = movies[i].getElementsByClassName("poster-type")[0].innerText.toLowerCase();
+
+      if (title.includes(input) || type.includes(input)) {
+        movies[i].style.display = "block";
+      } else {
+        movies[i].style.display = "none";
+      }
+    }
+  }
+</script>
 
 </body>
 </html>
