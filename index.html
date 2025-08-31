@@ -150,7 +150,7 @@
       </div>
     </a>
   </div>
-
+  
   <div class="poster-card">
     <a href="hit2.html" target="_blank">
       <img src="https://m.media-amazon.com/images/S/pv-target-images/0fbd6a006c6ba7fd3d6067c6d9a1e6d5da1dd4831c3ebde18dcb9ccaa2988c14.jpg" alt="Hit Two">
@@ -173,13 +173,17 @@
 </div>
 
 <script>
+  function normalizeText(text) {
+    return text.toLowerCase().replace(/\s+/g, ""); // lowercase + remove spaces
+  }
+
   function searchMovies() {
-    let input = document.getElementById("search").value.toLowerCase();
+    let input = normalizeText(document.getElementById("search").value);
     let movies = document.getElementsByClassName("poster-card");
 
     for (let i = 0; i < movies.length; i++) {
-      let title = movies[i].getElementsByClassName("poster-title")[0].innerText.toLowerCase();
-      let type = movies[i].getElementsByClassName("poster-type")[0].innerText.toLowerCase();
+      let title = normalizeText(movies[i].getElementsByClassName("poster-title")[0].innerText);
+      let type = normalizeText(movies[i].getElementsByClassName("poster-type")[0].innerText);
 
       if (title.includes(input) || type.includes(input)) {
         movies[i].style.display = "block";
